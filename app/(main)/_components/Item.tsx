@@ -32,9 +32,10 @@ interface ItemProps {
   isSearch?: boolean;
   level?: number;
   onExpand?: () => void;
-  onClick: () => void;
+  onClick?: () => void;
   label: string;
   icon: LucideIcon;
+  hasChildren?: boolean;
 }
 
 const Item = ({
@@ -48,6 +49,7 @@ const Item = ({
   onClick,
   label,
   icon: Icon,
+  hasChildren,
 }: ItemProps) => {
   const create = useMutation(api.documents.create);
   const router = useRouter();
@@ -103,9 +105,14 @@ const Item = ({
       {!!id && (
         <div
           role="button"
-          className="h-full rounded-sm hover:bg-neutral-300 dark:bg-neutral-600 mr-1"
+          className="h-full rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 mr-1"
           onClick={handleExpand}>
-          <ChevronIcon className="h-4 w-4 shrink-0 text-muted-foreground/50" />
+          <ChevronIcon
+            className={cn(
+              "h-4 w-4 shrink-0",
+              hasChildren ? "text-primary" : "text-muted-foreground/70"
+            )}
+          />
         </div>
       )}
       {documentIcon ? (
