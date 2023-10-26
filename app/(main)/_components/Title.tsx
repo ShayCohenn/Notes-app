@@ -49,14 +49,14 @@ const Title = ({ initialData }: TitleProps) => {
           onChange={onChange}
           onKeyDown={onKeyDown}
           value={title}
-          className="h-7 px-2 focus-visible:ring-transparent"
+          className="text-lg h-8 px-2 focus-visible:ring-transparent"
         />
       ) : (
         <Button
           onClick={enableInput}
           variant="ghost"
           size="sm"
-          className="font-normal h-auto p-1">
+          className="text-lg font-normal h-8 p-1">
           <span className="truncate">{initialData?.title}</span>
         </Button>
       )}

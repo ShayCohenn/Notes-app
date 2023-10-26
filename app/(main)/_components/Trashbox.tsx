@@ -27,7 +27,7 @@ const Trashbox = () => {
   });
 
   const onClick = (documentId: string) => {
-    router.push(`/document/${documentId}`);
+    router.push(`/documents/${documentId}`);
   };
 
   const onRestore = (
@@ -63,6 +63,8 @@ const Trashbox = () => {
       success: "Deleted all notes!",
       error: "Failed to delete all notes!",
     });
+
+    router.push("/documents");
   };
 
   const onRestoreAll = () => {
