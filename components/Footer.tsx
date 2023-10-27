@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div
       className="flex items-center w-full p-6 bg-background absolute 
-      bottom-0 left-0 z-[99999] dark:bg-[#1F1F1F]">
+      bottom-0 left-0 z-[9999] dark:bg-[#1F1F1F]">
       <Link href="/">
         <Logo />
       </Link>
