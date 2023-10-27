@@ -44,11 +44,11 @@ const DocumentsPage = () => {
         className="dark:block hidden"
       />
       <h2 className="text-lg font-medium">
-        Welcome to {user?.firstName}&apos;s notes
+        Welcome to {user?.firstName}&apos;s documents
       </h2>
       <Button onClick={onCreate}>
         <PlusCircle className="h-4 w-4 mr-2" />
-        Create a note
+        Create a document
       </Button>
     </div>
   );
