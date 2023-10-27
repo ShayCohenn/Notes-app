@@ -1,4 +1,4 @@
-import Footer from "./_components/Footer";
+import Footer from "../../components/Footer";
 import Heading from "./_components/Heading";
 import Heroes from "./_components/Heroes";
 

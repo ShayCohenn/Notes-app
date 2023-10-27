@@ -10,8 +10,8 @@ import { ConvexClientProvider } from "@/components/providers/convex-providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Shay's Notes App",
-  description: "NOTES APP",
+  title: "Documents App",
+  description: "Documents app",
   icons: {
     icon: [
       {

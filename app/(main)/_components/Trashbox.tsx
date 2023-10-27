@@ -5,6 +5,7 @@ import { Spinner } from "@/components/spinner";
 import { Input } from "@/components/ui/input";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
+import { useEdgeStore } from "@/lib/edgestore";
 import { useMutation } from "convex/react";
 import { useQuery } from "convex/react";
 import { Search, Trash, Undo } from "lucide-react";
@@ -20,6 +21,7 @@ const Trashbox = () => {
   const remove = useMutation(api.documents.remove);
   const removeAll = useMutation(api.documents.removeAll);
   const restoreAll = useMutation(api.documents.restoreAll);
+  const { edgestore } = useEdgeStore();
   const [search, setSearch] = useState("");
 
   const filteredDocuments = documents?.filter((document) => {
@@ -36,19 +38,33 @@ const Trashbox = () => {
   ) => {
     event.stopPropagation();
     const promise = restore({ id: documentId });
+
     toast.promise(promise, {
       loading: "Restoring...",
-      success: "Note Restored!",
-      error: "Failed to restore note.",
+      success: "Document Restored!",
+      error: "Failed to restore document.",
     });
   };
 
-  const onRemove = (documentId: Id<"documents">) => {
+  const onRemove = async (documentId: Id<"documents">) => {
+    const coverImageUrl = documents?.filter((doc) => {
+      return doc._id === documentId;
+    });
+
+    if (
+      coverImageUrl &&
+      coverImageUrl.length > 0 &&
+      coverImageUrl[0].coverImage
+    ) {
+      await edgestore.publicFiles.delete({
+        url: coverImageUrl[0].coverImage,
+      });
+    }
     const promise = remove({ id: documentId });
     toast.promise(promise, {
       loading: "Deleting...",
-      success: "Note Deleted!",
-      error: "Failed to Delete note.",
+      success: "Document Deleted!",
+      error: "Failed to Delete document.",
     });
 
     if (params.documentId === documentId) {
@@ -57,11 +73,24 @@ const Trashbox = () => {
   };
 
   const onRemoveAll = () => {
+    const coverImageUrl = documents?.map((doc) => {
+      return doc?.coverImage;
+    });
+
+    if (coverImageUrl && coverImageUrl.length > 0) {
+      coverImageUrl.forEach(async (url) => {
+        if (url) {
+          await edgestore.publicFiles.delete({
+            url: url,
+          });
+        }
+      });
+    }
     const promise = removeAll();
     toast.promise(promise, {
-      loading: "Deleting all notes...",
-      success: "Deleted all notes!",
-      error: "Failed to delete all notes!",
+      loading: "Deleting all documents...",
+      success: "Deleted all documents!",
+      error: "Failed to delete all documents!",
     });
 
     router.push("/documents");
@@ -70,9 +99,9 @@ const Trashbox = () => {
   const onRestoreAll = () => {
     const promise = restoreAll();
     toast.promise(promise, {
-      loading: "Restoring all notes...",
-      success: "Restored all notes!",
-      error: "Failed to restore all notes!",
+      loading: "Restoring all documents...",
+      success: "Restored all documents!",
+      error: "Failed to restore all documents!",
     });
   };
 

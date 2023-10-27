@@ -118,8 +118,8 @@ const Navigation = () => {
     });
     toast.promise(promise, {
       loading: "Creating...",
-      success: "Created a new note!",
-      error: "Failed to create a note!",
+      success: "Created a new document!",
+      error: "Failed to create a document!",
     });
   };
 

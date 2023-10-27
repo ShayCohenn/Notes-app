@@ -2,6 +2,8 @@ import { v } from "convex/values";
 import { mutation, query } from "./_generated/server";
 import { Doc, Id } from "./_generated/dataModel";
 
+// --------------------------- Removing the cover image ---------------------------
+
 export const removeCover = mutation({
   args: { id: v.id("documents") },
   handler: async (ctx, args) => {
@@ -21,9 +23,11 @@ export const removeCover = mutation({
       coverImage: undefined,
     });
 
-    return document
+    return document;
   },
 });
+
+// --------------------------- Removing the icon ---------------------------
 
 export const removeIcon = mutation({
   args: { id: v.id("documents") },
@@ -47,6 +51,8 @@ export const removeIcon = mutation({
     return document;
   },
 });
+
+// --------------------------- Updating the document ---------------------------
 
 export const update = mutation({
   args: {
@@ -78,6 +84,8 @@ export const update = mutation({
   },
 });
 
+// --------------------------- Getting a specific document by ID ---------------------------
+
 export const getById = query({
   args: { documentId: v.id("documents") },
   handler: async (ctx, args) => {
@@ -98,6 +106,8 @@ export const getById = query({
     return document;
   },
 });
+
+// --------------------------- Restore all documents from trash ---------------------------
 
 export const restoreAll = mutation({
   handler: async (ctx) => {
@@ -121,6 +131,8 @@ export const restoreAll = mutation({
   },
 });
 
+// --------------------------- Delete all documents from trash ---------------------------
+
 export const removeAll = mutation({
   handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -141,6 +153,8 @@ export const removeAll = mutation({
   },
 });
 
+// --------------------------- Get documents from search ---------------------------
+
 export const getSearch = query({
   handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -159,6 +173,8 @@ export const getSearch = query({
     return document;
   },
 });
+
+// --------------------------- Delete a document ---------------------------
 
 export const remove = mutation({
   args: { id: v.id("documents") },
@@ -180,6 +196,8 @@ export const remove = mutation({
     return document;
   },
 });
+
+// --------------------------- Restore a document ---------------------------
 
 export const restore = mutation({
   args: { id: v.id("documents") },
@@ -240,6 +258,8 @@ export const restore = mutation({
   },
 });
 
+// --------------------------- Get all the documents in the trash ---------------------------
+
 export const getTrash = query({
   handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -258,6 +278,8 @@ export const getTrash = query({
     return documents;
   },
 });
+
+// --------------------------- Move a document to trash ---------------------------
 
 export const archive = mutation({
   args: { id: v.id("documents") },
@@ -315,6 +337,8 @@ export const archive = mutation({
   },
 });
 
+// --------------------------- Get the user's documents for the sidebar ---------------------------
+
 export const getSidebar = query({
   args: {
     parentDocument: v.optional(v.id("documents")),
@@ -339,17 +363,7 @@ export const getSidebar = query({
   },
 });
 
-export const get = query({
-  handler: async (ctx) => {
-    const identity = await ctx.auth.getUserIdentity();
-
-    if (!identity) throw new Error("Unauthorized");
-
-    const documents = await ctx.db.query("documents").collect();
-
-    return documents;
-  },
-});
+// --------------------------- Create a document ---------------------------
 
 export const create = mutation({
   args: {

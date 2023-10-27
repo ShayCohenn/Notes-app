@@ -25,7 +25,7 @@ const Logo = () => {
         alt="Logo"
         className="hidden dark:block"
       />
-      <p className={cn("font-semibold", font.className)}>Notes App</p>
+      <p className={cn("font-semibold", font.className)}>Documents App</p>
     </div>
   );
 };

@@ -2,6 +2,7 @@
 
 import Cover from "@/components/Cover";
 import Editor from "@/components/Editor";
+import Footer from "@/components/Footer";
 import Toolbar from "@/components/Toolbar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { api } from "@/convex/_generated/api";

@@ -1,7 +1,14 @@
-import React from "react";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const PublicLayout = ({ children }: { children: React.ReactNode }) => {
-  return <div className="h-full dark:bg-[#1F1F1F]">{children}</div>;
+  return (
+    <div className="h-full dark:bg-[#1F1F1F]">
+      <Navbar />
+      {children}
+      <Footer/>
+    </div>
+  );
 };
 
 export default PublicLayout;
