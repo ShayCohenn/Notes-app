@@ -4,7 +4,7 @@ This is a documentation management app built with Next.js and deployed on vercel
 The purpose of this website is to create documents/notes/lists with a detailed editor, image upload,
 customisable file icons, creating child documents and an abilty to share your documents with others.<hr>
 
-## <a href="https://documents-l6rtt5a4w-shaycohenn.vercel.app/">LIVE WEBSITE</a>
+## <a href="https://documents-app-kappa.vercel.app/">LIVE WEBSITE</a>
 
 ## Key features:
 
@@ -14,6 +14,7 @@ customisable file icons, creating child documents and an abilty to share your do
 • Upload a cover image for the document <br>
 • Change the document's icon <br>
 • Create child documents <br>
+• Search using ctrl+K <br>
 • Publish the document
 
 ## Technologies used:
@@ -187,3 +188,30 @@ return (
 </details><hr>
 
 ## Images of the project
+<details>
+<summary>Click here to view</summary>
+
+### Light-mode
+can be changed in the settings
+<img src="./screenshots/light-mode.png">
+
+### Editor: 
+<img src="./screenshots/editor.png"> 
+<img src="./screenshots/editor2.png"> 
+
+### Image upload
+
+<img src="./screenshots/image-upload.png">
+
+### Trash 
+
+<img src="./screenshots/trash.png">
+
+### Search 
+<img src="./screenshots/search.png">
+
+### publish
+
+<img src="./screenshots/publish.png">
+
+</details>
