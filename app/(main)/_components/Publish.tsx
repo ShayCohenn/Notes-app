@@ -70,10 +70,11 @@ const Publish = ({ initialData }: PublishProps) => {
     <Popover>
       <PopoverTrigger asChild>
         <Button size="sm" variant="ghost">
-          <Globe className="h-4 w-4 mr-1 text-muted-foreground"/>
           Publish
-          {initialData.isPublished && (
+          {initialData.isPublished ? (
             <Globe className="h-4 w-4 text-sky-500 ml-2" />
+          ) :  (
+            <Globe className="h-4 w-4 text-muted-foreground ml-2" />
           )}
         </Button>
       </PopoverTrigger>

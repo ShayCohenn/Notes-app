@@ -15,5 +15,4 @@ export default defineSchema({
   })
     .index("by_user", ["userId"])
     .index("by_user_parent", ["userId", "parentDocument"])
-    // .index("by_user_child", ["userId", ""])
 });
