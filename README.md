@@ -185,7 +185,7 @@ return (
 
 ### • Deployment
 • <a href="https://vercel.com/">Vercel</a> - Cloud service especially for frontend applications.
-</details><hr>
+</details>
 
 ## Images of the project
 <details>
