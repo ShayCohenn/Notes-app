@@ -2,7 +2,7 @@
 
 This is a documentation management app built with Next.js and deployed on vercel.<br>
 The purpose of this website is to create documents/notes/lists with a detailed editor, image upload,
-customisable file icons, creating child documents and an abilty to share your documents with others.<hr>
+customizable file icons, creating child documents and an abilty to share your documents with others.<hr>
 
 ## <a href="https://documents-app-kappa.vercel.app/">LIVE WEBSITE</a>
 
