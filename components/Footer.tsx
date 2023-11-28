@@ -27,7 +27,7 @@ const Footer = () => {
         <Button variant="ghost" size="sm">
           <Link
             target="_blank"
-            href="https://portfolio-five-chi-95.vercel.app/"
+            href="https://portfolio-rho-five-94.vercel.app/"
             className="flex">
             <Link2 className="mr-2 rotate-45" />
             My Website
